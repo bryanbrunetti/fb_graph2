@@ -12,6 +12,7 @@ describe FbGraph2::Edge::Messages do
         messages.should_not be_blank
         messages.each do |message|
           message.should be_instance_of FbGraph2::Message
+          message.access_token.should eq('token')
         end
       end
     end

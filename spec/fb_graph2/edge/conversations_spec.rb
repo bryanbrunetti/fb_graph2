@@ -10,8 +10,9 @@ describe FbGraph2::Edge::Conversations do
         end
         conversations.should be_instance_of FbGraph2::Edge
         conversations.should_not be_blank
-        conversations.each do |message|
-          message.should be_instance_of FbGraph2::Conversation
+        conversations.each do |conversation|
+          conversation.should be_instance_of FbGraph2::Conversation
+          conversation.access_token.should eq('token')
         end
       end
     end
