@@ -52,7 +52,11 @@ module FbGraph2
                 Message.new _raw_[:id], _raw_
               end
             when :page
-              Page.new raw[:id], raw
+              if [:hometown, :location].include?(key) && !raw[:category].nil?
+                raw
+              else
+                Page.new raw[:id], raw
+              end
             when :pages
               Collection.new(raw).collect! do |_raw_|
                 Page.new _raw_[:id], _raw_
