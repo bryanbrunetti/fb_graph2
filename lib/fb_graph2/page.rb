@@ -19,6 +19,7 @@ module FbGraph2
     include Edge::Roles::PageContext
     include Edge::Settings
     include Edge::Statuses
+    include Edge::SubscribedApps
     include Edge::Tagged
     include Edge::Videos
     extend Searchable
