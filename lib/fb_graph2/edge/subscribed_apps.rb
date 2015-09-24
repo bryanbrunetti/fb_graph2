@@ -8,6 +8,15 @@ module FbGraph2
           App.new(app[:id], app).authenticate self.access_token
         end
       end
+
+      def subscribe!(params = {})
+        self.post params, edge: :subscribed_apps
+      end
+
+      def unsubscribe!(params = {})
+        self.delete params, edge: :subscribed_apps
+      end
+
     end
   end
 end
