@@ -52,7 +52,11 @@ module FbGraph2
                 Message.new _raw_[:id], _raw_
               end
             when :page
-              Page.new raw[:id], raw
+              if [:hometown, :location].include?(key) && !raw[:category].nil?
+                raw
+              else
+                Page.new raw[:id], raw
+              end
             when :pages
               Collection.new(raw).collect! do |_raw_|
                 Page.new _raw_[:id], _raw_
@@ -72,6 +76,10 @@ module FbGraph2
             when :users
               Collection.new(raw).collect! do |_raw_|
                 User.new _raw_[:id], _raw_
+              end
+            when :tags
+              Collection.new(raw).collect! do |_raw_|
+                Struct::Tag.new _raw_
               end
             else
               # NOTE: handle these attributes in each class

@@ -12,14 +12,18 @@ module FbGraph2
 
     def klass
       klass = case self.type
-      when 'user'
-        User
-      when 'page'
-        Page
-      when 'group'
-        Group
-      when 'event'
-        Event
+        when 'user'
+          User
+        when 'page'
+          Page
+        when 'group'
+          Group
+        when 'event'
+          Event
+        when 'application'
+          App
+        else
+          Node
       end
     end
   end

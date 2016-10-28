@@ -7,6 +7,10 @@ module FbGraph2
           Struct::Subscription.new subscription
         end
       end
+
+      def subscription!(params = {})
+        self.post params, edge: :subscriptions
+      end
     end
   end
 end

@@ -3,6 +3,7 @@ module FbGraph2
     include Edge::Admins
     include Edge::Albums
     include Edge::Blocked
+    include Edge::Conversations
     include Edge::Events
     include Edge::Feed
     include Edge::GlobalBrandChildren
@@ -18,6 +19,7 @@ module FbGraph2
     include Edge::Roles::PageContext
     include Edge::Settings
     include Edge::Statuses
+    include Edge::SubscribedApps
     include Edge::Tagged
     include Edge::Videos
     extend Searchable
